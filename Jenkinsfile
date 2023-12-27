@@ -46,24 +46,6 @@ node {
 
     input message: 'Lanjutkan ke tahap Deploy?', ok: 'Lanjutkan'     
 
-}
-
-}
-node {
-    stage('Deliver') {
-        agent {
-            docker {
-                image 'cdrx/pyinstaller-linux:python2'
-            }
-        }
-        steps {
-            sh 'pyinstaller --onefile sources/add2vals.py'
-        }
-        post {
-            success {
-                archiveArtifacts 'dist/add2vals'
-            }
-        }
     }
 }
 
@@ -75,7 +57,7 @@ node {
 
         // Use withDockerContainer to specify the pyinstaller container with a custom entrypoint
 
-        withDockerContainer(image: 'cdrx/pyinstaller-linux:python2', args: '--entrypoint=""') {
+        withDockerContainer(image: 'cdrx/pyinstaller-linux:python2') {
 
             sh 'pyinstaller --onefile sources/add2vals.py'
 
