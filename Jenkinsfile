@@ -53,9 +53,7 @@ node {
 node {
 
     stage('Deploy') {
-
-        pip install pyinstaller
-
+        
         checkout scm
 
         // Use withDockerContainer to specify the pyinstaller container with a custom entrypoint
