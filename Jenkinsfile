@@ -54,7 +54,7 @@ node {
 
     stage('Deploy') {
 
-        sh './scripts/deliver.sh' 
+        pip install pyinstaller
 
         checkout scm
 
