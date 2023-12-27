@@ -54,7 +54,7 @@ node {
 
     stage('Deploy') {
 
-        sh './jenkins/scripts/deliver.sh' 
+        sh './scripts/deliver.sh' 
 
         checkout scm
 
